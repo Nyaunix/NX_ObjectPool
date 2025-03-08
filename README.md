@@ -1,1 +1,1 @@
-PoolObject Plugin
+Object Pool Plugin for Unreal Engine
