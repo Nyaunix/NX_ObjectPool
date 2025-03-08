@@ -2,9 +2,9 @@
 
 using UnrealBuildTool;
 
-public class NX_PullObject : ModuleRules
+public class NX_ObjectPool : ModuleRules
 {
-	public NX_PullObject(ReadOnlyTargetRules Target) : base(Target)
+	public NX_ObjectPool(ReadOnlyTargetRules Target) : base(Target)
 	{
 		PCHUsage = ModuleRules.PCHUsageMode.UseExplicitOrSharedPCHs;
 		

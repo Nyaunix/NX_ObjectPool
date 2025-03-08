@@ -5,7 +5,7 @@
 #include "CoreMinimal.h"
 #include "Modules/ModuleManager.h"
 
-class FNX_PullObjectModule : public IModuleInterface
+class FNX_ObjectPoolModule : public IModuleInterface
 {
 public:
 

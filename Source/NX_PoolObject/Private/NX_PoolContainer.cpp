@@ -2,22 +2,22 @@
 // Licensed under the Apache License 2.0
 
 
-#include "NX_PullContainer.h"
+#include "NX_PoolContainer.h"
 #include "Engine/World.h"
 
 
 //Gives
-UObject* UPullContainer::GiveObject(UClass *IncomingClass)
+UObject* UPoolContainer::GiveObject(UClass *IncomingClass)
 {
-	if (!PullFree.IsEmpty()) {
-		return PullFree.Pop(); //Remove and return last object of array;
+	if (!PoolFree.IsEmpty()) {
+		return PoolFree.Pop(); //Remove and return last object of array;
 		}
 	return NewObject<UObject>(this, IncomingClass);
 }
-UObject* UPullContainer::GiveActor(UObject* IncomingWorldContext, TSubclassOf<AActor> IncomingClass)
+UObject* UPoolContainer::GiveActor(UObject* IncomingWorldContext, TSubclassOf<AActor> IncomingClass)
 {
-	if (!PullFree.IsEmpty()) {
-		return PullFree.Pop();
+	if (!PoolFree.IsEmpty()) {
+		return PoolFree.Pop();
 	}
 	return IncomingWorldContext->GetWorld()->SpawnActor<AActor>(
 		IncomingClass,
@@ -28,14 +28,14 @@ UObject* UPullContainer::GiveActor(UObject* IncomingWorldContext, TSubclassOf<AA
 }
 
 //Takes
-void UPullContainer::TakeObject(UObject* IncomingObject)
+void UPoolContainer::TakeObject(UObject* IncomingObject)
 {
-	PullFree.Add(IncomingObject);
+	PoolFree.Add(IncomingObject);
 }
 
 
 //Preloads
-void UPullContainer::PreloadObjects(UClass* IncomingClass, int32 IncomingCount)
+void UPoolContainer::PreloadObjects(UClass* IncomingClass, int32 IncomingCount)
 {
 	TArray<UObject*> LObjects;
 	for (; IncomingCount > 0; IncomingCount--) {
@@ -46,7 +46,7 @@ void UPullContainer::PreloadObjects(UClass* IncomingClass, int32 IncomingCount)
 	}
 }
 
-void UPullContainer::PreloadActors(UObject* IncomingWorldContext, UClass* IncomingClass, int32 IncomingCount)
+void UPoolContainer::PreloadActors(UObject* IncomingWorldContext, UClass* IncomingClass, int32 IncomingCount)
 {
 	TArray<UObject*> LObjects;
 	for (; IncomingCount > 0; IncomingCount--) {
@@ -57,7 +57,7 @@ void UPullContainer::PreloadActors(UObject* IncomingWorldContext, UClass* Incomi
 	}
 }
 
-void UPullContainer::PullClear()
+void UPoolContainer::PoolClear()
 {
-	PullFree.Empty();
+	PoolFree.Empty();
 }
