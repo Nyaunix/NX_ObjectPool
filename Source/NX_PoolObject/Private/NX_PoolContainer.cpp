@@ -1,5 +1,9 @@
-// Copyright 2025 Nyaunix
-// Licensed under the Apache License 2.0
+/*
+NX_ObjectPool
+Copyright (C) 2025 Nyaunix
+This file is part of NX_ObjectPool and is distributed under the Harvest-Share License.
+See the LICENSE file in the repository for details.
+*/
 
 
 #include "NX_PoolContainer.h"
@@ -10,7 +14,7 @@
 UObject* UPoolContainer::GiveObject(UClass *IncomingClass)
 {
 	if (!PoolFree.IsEmpty()) {
-		return PoolFree.Pop(); //Remove and return last object of array;
+		return PoolFree.Pop();
 		}
 	return NewObject<UObject>(this, IncomingClass);
 }

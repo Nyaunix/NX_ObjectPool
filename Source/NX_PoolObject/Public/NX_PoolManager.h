@@ -1,14 +1,16 @@
-// Copyright 2025 Nyaunix
-// Licensed under the Apache License 2.0
+/*
+NX_ObjectPool
+Copyright (C) 2025 Nyaunix
+This file is part of NX_ObjectPool and is distributed under the Harvest-Share License.
+See the LICENSE file in the repository for details.
+*/
+
 
 #pragma once
-
 #include "CoreMinimal.h"
 #include "UObject/NoExportTypes.h"
 #include "NX_PoolContainer.h"
 #include "NX_PoolManager.generated.h"
-
-
 
 
 UCLASS(Blueprintable)

@@ -1,4 +1,13 @@
-Harvest Share License
+NX_ObjectPool
+Copyright (C) 2025 Nyaunix
 
-Can also be described as "Fertilizer Fee After a Good Harvest"
-The plugin is distributed under the Harvest-Share License: use it for free, but pay 0.5% of the revenue if your project earns more than $1000 in a year.
+This software is distributed under the Harvest-Share License:
+
+This software is provided 'as-is', without any express or implied warranty. In no event will the author be held liable for any damages arising from the use of this software.
+
+Permission is granted to anyone to use this software for any purpose, including commercial applications, and to alter it and redistribute it freely, subject to the following restrictions:
+
+1. The origin of this software must not be misrepresented; you must not claim that you wrote the original software. If you use this software in a product, an acknowledgment in the product documentation is appreciated but not required.
+2. Altered source versions must be plainly marked as such and must not be misrepresented as being the original software.
+3. This notice may not be removed or altered from any source distribution.
+4. If a project utilizing this software generates revenue exceeding $2,000 USD in a single calendar year, the user must pay the author 0.5% of the total revenue, up to a maximum of $1,000 USD. Payments should be coordinated directly with the author via nyaunixcontact@proton.me.

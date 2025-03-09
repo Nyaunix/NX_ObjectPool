@@ -1,14 +1,15 @@
-// Copyright 2025 Nyaunix
-// Licensed under the Apache License 2.0
+/*
+NX_ObjectPool
+Copyright (C) 2025 Nyaunix
+This file is part of NX_ObjectPool and is distributed under the Harvest-Share License.
+See the LICENSE file in the repository for details.
+*/
+
 
 #include "NX_PoolManager.h"
 #include "Engine/World.h"
 #include "Kismet/GameplayStatics.h"
 #include "NX_PoolContainer.h"
-
-
-
-
 
 
 UPoolManager* UPoolManager::GetPoolManagerGlobal(UObject* IncomingWorldContext)
@@ -40,7 +41,7 @@ UObject* UPoolManager::GiveObject(UClass* IncomingClass)
 		return (*FoundPool)->GiveObject(IncomingClass);
 	}
 	//Create new container
-	UPoolContainer* NewPool = NewObject<UPoolContainer>(this);// old GetTransientPackage()
+	UPoolContainer* NewPool = NewObject<UPoolContainer>(this);
 	//Create object from container
 	PoolContainers.Add(IncomingClass, NewPool);
 	return NewPool->GiveObject(IncomingClass);
@@ -55,7 +56,7 @@ UObject* UPoolManager::GiveActor(UObject* IncomingWorldContext, TSubclassOf<AAct
 		return (*FoundPool)->GiveActor(IncomingWorldContext, IncomingClass);
 	}
 	//Create new container
-	UPoolContainer* NewPool = NewObject<UPoolContainer>(this);// old GetTransientPackage()
+	UPoolContainer* NewPool = NewObject<UPoolContainer>(this);
 	//Create object from container
 	PoolContainers.Add(IncomingClass, NewPool);
 	return NewPool->GiveActor(IncomingWorldContext, IncomingClass);
