@@ -32,7 +32,7 @@ Func:
 * TakeObject
 
 Vars:
-* PoolContainers(TMap<UClass*, UPullContainer*>)
+* PoolContainers(TMap<UClass*, UPoolContainer*>)
 ---
 
 
