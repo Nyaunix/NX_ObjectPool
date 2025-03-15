@@ -41,3 +41,6 @@ Pools do not check the validity of incoming data to remain high performance.
 
 ![](https://github.com/Nyaunix/NX_ObjectPool/blob/main/Resources/imageContainer.jpg)
 ![](https://github.com/Nyaunix/NX_ObjectPool/blob/main/Resources/imageManager.jpg)
+
+---
+![Discord](https://discord.gg/YBUGddBKT3)
