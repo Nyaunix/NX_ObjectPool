@@ -16,6 +16,10 @@ TWeakObjectPtr<UPoolManager> UPoolManager::Singleton = nullptr;
 
 bool UPoolManager::InitPoolManager(UObject* IncomingWorldContext)
 {
+	if (Singleton.IsValid())
+	{
+		return true;
+	}
 	UWorld* World = IncomingWorldContext ? IncomingWorldContext->GetWorld() : nullptr;
 	if (!World) {
 		return false;
