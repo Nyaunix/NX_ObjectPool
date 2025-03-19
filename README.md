@@ -26,7 +26,9 @@ Stores the PoolContainers.
 Incoming and outgoing objects are automatically sorted between pools.
 
 Func:
-* GetPoolManagerGlobal - can be called from anywhere in the game
+* InitPoolManager
+* GetPoolManagerUnchecked
+* GetPoolManagerChecked
 * GiveObject
 * GiveActor
 * TakeObject
