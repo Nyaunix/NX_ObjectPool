@@ -20,8 +20,14 @@ class NX_OBJECTPOOL_API UPoolManager : public UObject
 
 public:
 	UFUNCTION(BlueprintCallable, Category = "Pool", meta = (DefaultToSelf = "IncomingWorldContext"))
-	static UPoolManager* GetPoolManagerGlobal(UObject* IncomingWorldContext);
+	static bool InitPoolManager(UObject* IncomingWorldContext);
+
+	UFUNCTION(BlueprintCallable, Category = "Pool", meta = (DefaultToSelf = "IncomingWorldContext"))
+	static UPoolManager* GetPoolManagerUnchecked(UObject* IncomingWorldContext);
 	
+	UFUNCTION(BlueprintCallable, Category = "Pool")
+	static UPoolManager* GetPoolManagerChecked();
+
 	
 
 	UFUNCTION(BlueprintCallable, Category="Pool", meta = (DeterminesOutputType = "IncomingClass"))
@@ -42,4 +48,6 @@ public:
 
 	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 	TMap<UClass*, UPoolContainer*> PoolContainers;
+
+	static TWeakObjectPtr<UPoolManager> Singleton;
 };

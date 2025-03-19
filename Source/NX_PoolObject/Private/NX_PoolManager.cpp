@@ -12,22 +12,33 @@ See the LICENSE file in the repository for details.
 #include "NX_PoolContainer.h"
 
 
-UPoolManager* UPoolManager::GetPoolManagerGlobal(UObject* IncomingWorldContext)
+TWeakObjectPtr<UPoolManager> UPoolManager::Singleton = nullptr;
+
+bool UPoolManager::InitPoolManager(UObject* IncomingWorldContext)
 {
-	static TWeakObjectPtr<UPoolManager> Singleton;
+	UWorld* World = IncomingWorldContext ? IncomingWorldContext->GetWorld() : nullptr;
+	if (!World) {
+		return false;
+	}
+	Singleton = NewObject<UPoolManager>(World);
+	return true;
+}
+
+UPoolManager* UPoolManager::GetPoolManagerUnchecked(UObject* IncomingWorldContext)
+{
 	if (Singleton.IsValid())
 	{
 		return Singleton.Get();
-		
 	}
-	UWorld* World = IncomingWorldContext ? IncomingWorldContext->GetWorld() : nullptr;
-	if (!World) {
-		return nullptr;
+	if (InitPoolManager(IncomingWorldContext)) {
+		return Singleton.Get();
 	}
+	return nullptr;
+}
 
-	UPoolManager* NewManager = NewObject<UPoolManager>(World);
-	Singleton = NewManager;
-	return NewManager;
+UPoolManager* UPoolManager::GetPoolManagerChecked()
+{
+	return Singleton.Get();
 }
 
 
