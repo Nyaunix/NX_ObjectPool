@@ -1,8 +1,7 @@
 /*
 NX_ObjectPool
 Copyright (C) 2025 Nyaunix
-This file is part of NX_ObjectPool and is distributed under the Harvest-Share License.
-See the LICENSE file in the repository for details.
+MIT License
 */
 
 
